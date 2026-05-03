@@ -1,6 +1,6 @@
-# School System - Microservices Project
+# Microservices Project
 
-Ovaj projekat predstavlja backend aplikaciju za školski sistem, razvijenu korišćenjem **Spring Boot** frameworka i arhitekture **mikroservisa**.
+Ovaj projekat predstavlja backend aplikaciju, razvijenu korišćenjem **Spring Boot** frameworka i arhitekture **mikroservisa**.
 
 ### Informacije o autoru
 * **Ime i prezime:** Milica Stojanović
