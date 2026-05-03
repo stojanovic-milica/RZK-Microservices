@@ -11,9 +11,10 @@ Ovaj projekat predstavlja backend aplikaciju za školski sistem, razvijenu kori�
 ### Tehnologije i Arhitektura
 Sistem se sastoji od nekoliko nezavisnih servisa:
 
-* **Spring Cloud Netflix Eureka:** Omogućava Service discovery.
-* **API Gateway:** Centralna tačka pristupa sistemu.
 * **Mikroservisi:** Autonomne jedinice za korisnike, edukaciju, termine i plaćanje.
+* **Spring Cloud Netflix Eureka:** Omogućava Service discovery.
+* **Config Server:** Centralizovano upravljanje konfiguracijom servisa.
+* **API Gateway:** Centralna tačka pristupa sistemu.
 * **Docker & Docker Compose:** Omogućavaju laku portabilnost i pokretanje sistema.
 
 ---
