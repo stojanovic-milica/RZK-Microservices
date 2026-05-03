@@ -1,0 +1,84 @@
+services:
+
+#  config-server:
+#    image: rzk/config-server:0.1
+#    container_name: config-server
+#    ports:
+#      - "8888:8888"
+#    volumes:
+#      - C:/Users/User/Desktop/RZKproject/config-repo:/config-repo
+#    environment:
+#        - SPRING_CLOUD_CONFIG_SERVER_GIT_URI=file:///config-repo
+#    networks:
+#      - salon-mreza
+
+  eureka-server:
+    image: rzk/eureka-server:0.1
+    container_name: eureka-server
+    ports:
+      - "8761:8761"
+    networks:
+      - salon-mreza
+
+  korisnik-service:
+    image: rzk/korisnik-service:0.1
+    container_name: korisnik-service
+    ports:
+      - "8081:8081"
+    depends_on:
+      - eureka-server
+#      - config-server
+    networks:
+      - salon-mreza
+
+  termin-service:
+    image: rzk/termin-service:0.1
+    container_name: termin-service
+    ports:
+      - "8082:8082"
+    depends_on:
+      - eureka-server
+#      - config-server
+    networks:
+      - salon-mreza
+
+  placanje-service:
+    image: rzk/placanje-service:0.1
+    container_name: placanje-service
+    ports:
+      - "8083:8083"
+    depends_on:
+      - eureka-server
+#      - config-server
+    networks:
+      - salon-mreza
+
+  edukacija-service:
+    image: rzk/edukacija-service:0.1
+    container_name: edukacija-service
+    ports:
+      - "8084:8084"
+    depends_on:
+      - eureka-server
+#      - config-server
+    networks:
+      - salon-mreza
+
+  api-gateway:
+    image: rzk/api-gateway:0.1
+    container_name: api-gateway
+    ports:
+      - "8765:8765"
+    depends_on:
+      - eureka-server
+      - korisnik-service
+      - edukacija-service
+      - termin-service
+      - placanje-service
+    #      - config-server
+    networks:
+      - salon-mreza
+
+networks:
+  salon-mreza:
+    driver: bridge
